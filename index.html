@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+        }
+
+        .header {
+            background-color: #223983;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-tagline {
+            font-size: 24px;
+        }
+
+        .logo-tagline img {
+            height: 75px;
+            width: auto;
+        }
+
+        .login-button {
+            background-color: #f49323;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .hero {
+            margin: 10px;
+            padding: 10px;
+            height: 150px;
+            width: 200;
+            text-align: center;
+        }
+
+        .hero img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .demo {
+            margin-top: 40px;
+            padding: 20px;
+            height: 710px;
+        }
+
+        .demo video {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border-style: solid;
+            border-color: #223983;
+            border-width: 5px;
+            display: flex;
+
+        }
+
+        .column {
+            float: left;
+            width: 15%;
+            padding: 0 10px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            text-align: center;
+            background-color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .container1 {
+            padding: -10px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .logo-tagline {
+                margin-bottom: 10px;
+            }
+
+            .login-button {
+                margin-top: 10px;
+            }
+        }
+
+        footer {
+            background-color: #223983;
+            color: white;
+            padding: 10px;
+        }
+
+        .footer-navbar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-nav-left,
+        .footer-nav-right {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .footer-nav-left li,
+        .footer-nav-right li {
+            margin-right: 10px;
+        }
+
+        .footer-nav-left a,
+        .footer-nav-right a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-nav-right img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+
+        .container {
+            width: 100%;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: #223983;
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form {
+            margin-top: 20px;
+        }
+
+        input[type="email"] {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #f49323;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #f49323;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e47d00;
+
+        }
+
+        .testimonials {
+            background-color: #d4d4d4;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            display: flex;
+            align-items: center;
+            min-width: 800px;
+            margin-right: 2rem;
+        }
+
+        .avatar {
+            margin-right: 2rem;
+        }
+
+        .avatar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-content {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 800px;
+        }
+
+        .testimonial-content p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: #e47d00;
+
+        }
+
+        .author {
+            font-weight: bold;
+        }
+
+        .prev-btn,
+        .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            padding: 0.5rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .prev-btn {
+            left: 1rem;
+        }
+
+        .next-btn {
+            right: 1rem;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .feature {
+            flex: wrap;
+            background-color: #fff;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .feature:last-child {
+            margin-right: 0;
+        }
+
+        .feature h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="logo-tagline">
+            <img src="Logo.webp" alt="Logo">
+        </div>
+        <button class="login-button">Login</button>
+    </div>
+    <div class="hero">
+        <img src="adcfvae.png" alt="Vijay">
+    </div>
+    <div class="demo">
+        <video controls>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="avatar.jpeg" alt="Image1" style="width:100%">
+                <div class="container1">
+                    <h4><b>Benefit-1</b></h4>
+                    <p>Welcome to our campus</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="avatar1.webp" alt="Image2" style="width:100%">
+                <div class="container1">
+                    <h4><b>Benefit-2</b></h4>
+                    <p>Welcome to our campus</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="avartar2.png" alt="Image3" style="width:100%">
+                <div class="container1">
+                    <h4><b>Benefit-3</b></h4>
+                    <p>Welcome to our campus</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <img src="avatar3.png" alt="Image4" style="width:100%">
+                <div class="container1">
+                    <h4><b>Benefit-4</b></h4>
+                    <p>Welcome to our campus</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <center>
+        <h2> Testimonials</h2>
+    </center>
+    <section class="testimonials">
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <div class="avatar">
+                    <img src="avatar1.webp" alt="Rachel Cook">
+                </div>
+                <div class="testimonial-content">
+                    <p>"True friends are there in times of trouble, a sounding board to hear your wonderful (and
+                        sometimes crazy) ideas, to be there in times of celebration and everything in between…friends
+                        are truly special in our lives."</p>
+                    <p class="author">Romeo</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="avatar">
+                    <img src="avartar2.png" alt="Rachel Cook">
+                </div>
+                <div class="testimonial-content">
+                    <p>"True friends are there in times of trouble, a sounding board to hear your wonderful (and
+                        sometimes crazy) ideas, to be there in times of celebration and everything in between…friends
+                        are truly special in our lives."</p>
+                    <p class="author">Leo</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="avatar">
+                    <img src="avatar3.png" alt="Rachel Cook">
+                </div>
+                <div class="testimonial-content">
+                    <p>"True friends are there in times of trouble, a sounding board to hear your wonderful (and
+                        sometimes crazy) ideas, to be there in times of celebration and everything in between…friends
+                        are truly special in our lives."</p>
+                    <p class="author">John</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="avatar">
+                    <img src="avatar.jpeg" alt="Rachel Cook">
+                </div>
+                <div class="testimonial-content">
+                    <p>"True friends are there in times of trouble, a sounding board to hear your wonderful (and
+                        sometimes crazy) ideas, to be there in times of celebration and everything in between…friends
+                        are truly special in our lives."</p>
+                    <p class="author">Texas</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="prev-btn">&#8249;</button>
+        <button class="next-btn">&#8250;</button>
+    </section>
+
+    <!-- Testimonial dots -->
+    <div class="dots" style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+    <script>
+
+        testimonialContainer = document.querySelector('.testimonial-container');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+
+        let scrollAmount = 0;
+        const scrollStep = testimonialContainer.offsetWidth;
+
+        prevBtn.addEventListener('click', () => {
+            scrollAmount -= scrollStep;
+            if (scrollAmount < 0) {
+                scrollAmount = 0;
+            }
+            testimonialContainer.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            scrollAmount += scrollStep;
+            if (scrollAmount > testimonialContainer.scrollWidth - testimonialContainer.clientWidth) {
+                scrollAmount = testimonialContainer.scrollWidth - testimonialContainer.clientWidth;
+            }
+            testimonialContainer.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+    </script>
+    <hr>
+    ...
+    <section class="features">
+        <div class="feature">
+            <h2>Feature 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+        </div>
+        <div class="feature">
+            <h2>Feature 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+        </div>
+        <div class="feature">
+            <h2>Feature 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat.</p>
+        </div>
+    </section>
+    ...
+
+
+    <div class="container">
+        <h2>Sign up / Get started</h2>
+        <div class="form">
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <nav class="footer-navbar">
+            <ul class="footer-nav-left">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <ul class="footer-nav-right">
+                <li><a href="#"><img src="facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="Insta.png" alt="Instagram"></a></li>
+                <li><a href="#"><img src="Linkedin.png" alt="LinkedIn"></a></li>
+                <li><a href="#"><img src="Watsapp.png" alt="LinkedIn"></a></li>
+            </ul>
+
+        </nav>
+    </footer>
+
+
+</body>
+
+</html>
